@@ -2,7 +2,7 @@ version: '3'
 services:
   amule:
     restart: unless-stopped
-    image: jsiu/amule
+    image: garret/amule-raspberrypi
     container_name: amule
     logging:
       options:
