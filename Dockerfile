@@ -2,10 +2,10 @@
 FROM alpine:edge
 
 LABEL version="2.3.3-r1"
-LABEL maintainers="[John Sing Dao Siu](https://github.com/J-Siu)"
+LABEL maintainers="[Garret](https://github.com/garret/amule-raspberrypi)"
 LABEL name="amule"
-LABEL usage="https://github.com/J-Siu/docker_amule/blob/master/README.md"
-LABEL description="Docker - amule"
+LABEL usage="https://github.com/garret/amule-raspberrypi/blob/master/README.md"
+LABEL description="Docker aMule for Raspberry Pi"
 
 RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories \
 && apk --no-cache add tzdata amule=2.3.3-r1 git \
