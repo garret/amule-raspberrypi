@@ -1,4 +1,3 @@
-# docker_mpd
 FROM alpine:edge
 
 LABEL version="2.3.3-r1"
@@ -17,7 +16,7 @@ RUN cd /usr/share/amule/webserver \
 && rm -rf AmuleWebUI-Reloaded/.git AmuleWebUI-Reloaded/doc-images \
 && apk del git
 
-COPY docker-compose.yml env start.sh /
+COPY start.sh /
 RUN chmod +x /start.sh
 
 CMD ["/start.sh"]
