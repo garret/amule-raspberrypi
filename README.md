@@ -3,9 +3,9 @@ Docker - amule
 ### Build
 
 ```sh
-git clone https://github.com/J-Siu/docker_amule.git
-cd docker_amule
-docker build -t jsiu/amule .
+git clone https://github.com/garret/amule-raspberrypi.git
+cd amule-raspberrypi
+docker build -t garret/amule-raspberrypi .
 ```
 
 ### Usage
@@ -14,10 +14,10 @@ docker build -t jsiu/amule .
 
 Host|Inside Container|Mapping Required|Usage
 ---|---|---|---
-${AMULE_DIR}|/amule/.amule/|yes|amule directory
+${AMULE_DIR}|/amule/.aMule/|yes|amule directory
 ${AMULE_UID}|PUID|yes|amule uid
 ${AMULE_GID}|PGID|yes|amule gid
-${TZ}|P_TZ|yes|time zone
+${TZ}|P_TZ|yes|timezone
 
 #### Run
 
@@ -25,55 +25,12 @@ ${TZ}|P_TZ|yes|time zone
 docker run \
 -d \
 -e PUID=1001 \
--e PGID=1002 \
--e P_TZ=America/New_York \
--v /home/jsiu/.amule:/amule/.amule \
+-e PGID=1001 \
+-e P_TZ=Europe/Rome \
+-v /home/user/.amule:/amule/.aMule \
 --network=host \
-jsiu/amule
+garret/amule-raspberrypi
 ```
-
-#### Compose
-
-Get docker-compose template from image:
-
-```docker
-docker run --rm jsiu/amule cat /docker-compose.yml > docker-compose.yml
-docker run --rm jsiu/amule cat /env > .env
-```
-
-Fill in `.env` according to your environment.
-
-```sh
-docker-compose up
-```
-
-### Repository
-
-- [docker_amule](https://github.com/J-Siu/docker_amule)
-
-### Contributors
-
-- [John Sing Dao Siu](https://github.com/J-Siu)
-
-### Change Log
-
-- 11025
-  - amule version 11025-r0
-- 11025-r0-p1
-  - Add patch postfix `-p1` to indicate container update
-  - amule version 11025-r0
-  - start.sh
-    - Use exec so start.sh can exit
-    - Remove delgroup/deluser ${PUSR}
-- 11066-r0
-  - Auto update to 11066-r0
-- 11066-r1
-  - Auto update to 11066-r1
-- 11066-r2
-  - Auto update to 11066-r2
-- 2.3.3-r1
-  - Auto update to 2.3.3-r1
-<!--CHANGE-LOG-END-->
 
 ### License
 
