@@ -5,7 +5,7 @@ Docker - amule
 ```sh
 git clone https://github.com/garret/amule-raspberrypi.git
 cd amule-raspberrypi
-docker build -t garret/amule-raspberrypi .
+docker build -t garret88/amule-raspberrypi .
 ```
 
 ### Usage
@@ -28,8 +28,10 @@ docker run \
 -e PGID=1001 \
 -e P_TZ=Europe/Rome \
 -v /home/user/.amule:/amule/.aMule \
+-v /home/user/Incoming:/amule/.aMule\Incoming \
+-v /home/user/Temp:/amule/.aMule\Temp \
 --network=host \
-garret/amule-raspberrypi
+garret88/amule-raspberrypi
 ```
 
 ### License
